@@ -11,7 +11,7 @@ import { ProductService } from '../product.service';
   styleUrls: ['./product-details.component.css'],
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy {
-  private _unSubscribeAll = new Subject();
+  private _unSubscribeAll = new Subject()
 
   pageTitle: string = 'Product Details';
   selsctedproduct: Iproduct | any;
