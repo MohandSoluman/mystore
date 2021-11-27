@@ -6,15 +6,16 @@ import { AppComponent } from './app.component';
 
 
 import { WelcomeComponent } from './welcome/welcome.component';
-import { NotfoubdComponent } from './notfoubd/notfoubd.component';
+
 import { ProductModule } from './products/product.module';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    NotfoubdComponent
+  NotfoundComponent
   ],
   imports: [
     BrowserModule,
