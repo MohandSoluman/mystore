@@ -11,10 +11,10 @@ import { ProductService } from '../product.service';
   styleUrls: ['./product-details.component.css'],
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy {
-  private _unSubscribeAll = new Subject()
-
+  private _unSubscribeAll = new Subject();
+  imageWidth=300;
   pageTitle: string = 'Product Details';
-  selsctedproduct: Iproduct | any;
+  selectedProduct: Iproduct | any;
   products: Iproduct[] = [];
   errorMessage: string = '';
   constructor(
@@ -24,7 +24,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
     this.pageTitle = this.pageTitle + `:${id}`;
@@ -34,7 +33,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (products) => {
           this.products = products;
-          this.selsctedproduct = products.find((p) => p.productId === id);
+          this.selectedProduct = products.find((p) => p.productId === id);
         },
         error: (err) => (this.errorMessage = err),
       });

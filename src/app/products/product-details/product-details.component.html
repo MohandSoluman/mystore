@@ -3,8 +3,19 @@
         <h2>{{pageTitle}}</h2>
     </div>
     <div class="card-body">
-        Name: {{selsctedproduct?.productName}}
-        <br> Code:{{selsctedproduct?.productCode}}
+      <div class="row">
+          <div class="col-md-4">
+               <h2> Name: {{selectedProduct?.productName}}</h2>
+               <h2> Code: {{selectedProduct?.productCode}}</h2>
+                <h2> Price: {{selectedProduct?.price}}</h2>
+                <h2> ReleaseDate: {{selectedProduct?.releaseDate|date}}</h2>
+                <h2> Rating : {{selectedProduct?.starRating}}</h2>
+                <h2> Description: {{selectedProduct?.description}}</h2>
+          </div>
+          <div class="col-md-5">
+            <img [src]='selectedProduct?.imageUrl'[style.width.px]="imageWidth">
+          </div>
+      </div>
 
     </div>
 </div>
