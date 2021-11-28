@@ -6,12 +6,12 @@
         <div class="row">
             <div class="col-md-2">Filtered BY:</div>
             <div class="col-md-4">
-                <input type="text" [(ngModel)]='listFiltter'>
+                <input type="text" [(ngModel)]='listFilter'>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
-                <h2> Filtered BY:{{listFiltter}}</h2>
+                <h2> Filtered BY:{{listFilter}}</h2>
             </div>
         </div>
         <table class="table table-striped" *ngIf="products.length">
@@ -22,7 +22,7 @@
                     </th>
                     <th scope="col">Product</th>
                     <th scope="col">Code</th>
-                    <th scope="col">Avilable</th>
+                    <th scope="col">Available</th>
                     <th scope="col">Price</th>
                     <th scope="col">5 Stars Rating</th>
                 </tr>
