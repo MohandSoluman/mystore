@@ -3,27 +3,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-
 import { WelcomeComponent } from './welcome/welcome.component';
-
 import { ProductModule } from './products/product.module';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { MessageComponent } from './message/message.component';
+import { UserModule } from './user/user.module';
+
+
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
+  declarations: [AppComponent,
     WelcomeComponent,
-  NotfoundComponent
-  ],
+     NotfoundComponent,
+     MessageComponent
+    ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
-    ProductModule
+    ProductModule,
+    UserModule,
+    AppRoutingModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

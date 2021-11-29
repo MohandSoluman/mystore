@@ -1,25 +1,49 @@
 <div class="card">
     <div class="card-header">
-        <h2>{{pageTitle}}</h2>
+        <h2>{{pageTitle}} : {{selectedProduct.productName}}</h2>
     </div>
     <div class="card-body">
       <div class="row">
-          <div class="col-md-4">
-               <h2> Name: {{selectedProduct?.productName}}</h2>
-               <h2> Code: {{selectedProduct?.productCode}}</h2>
-                <h2> Price: {{selectedProduct?.price}}</h2>
-                <h2> ReleaseDate: {{selectedProduct?.releaseDate|date}}</h2>
-                <h2> Rating : {{selectedProduct?.starRating}}</h2>
-                <h2> Description: {{selectedProduct?.description}}</h2>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-3">Name:</div>
+            <div class="col-md-6">{{selectedProduct.productName}}</div>
           </div>
-          <div class="col-md-5">
-            <img [src]='selectedProduct?.imageUrl'[style.width.px]="imageWidth">
-          </div>
+            <div class="row">
+              <div class="col-md-3">Code:</div>
+              <div class="col-md-6">{{selectedProduct.productCode}}</div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">Description:</div>
+              <div class="col-md-6">{{selectedProduct.description}}</div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">Availability:</div>
+              <div class="col-md-6">{{selectedProduct.releaseDate}}</div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">Price:</div>
+              <div class="col-md-6">{{selectedProduct.price|currency:"USD":"symbol"}}</div>
+            </div>
+              <div class="row">
+                 <div class="col-md-3">5 Star Rating:</div>
+                 <div class="col-md-6">
+                  <app-star [rating]='selectedProduct.starRating'></app-star>
+                 </div>
+              </div>
+
+        </div>
+        <div class="col-md-4" *ngIf="selectedProduct.imageUrl">
+          <img class="center-block img-responsive" [style.height.px]="200" [style.margin.px]="2" [src]="selectedProduct.imageUrl"
+            [title]="selectedProduct.productName">
+        </div>
       </div>
+      <!-- -------------------------------------- -->
 
     </div>
 </div>
 <div class="card-footer">
-    <button type="button" class="btn btn-warning" (click)="onBack()">Back</button>
-</div>
+    <button type="button"  class="btn btn-outline-secondary" style="width:80px" (click)="onBack()">Back</button>
+<button class="btn btn-outline-primary" style="width:80px" [routerLink]="['/products',selectedProduct.id,'edit']">Edit</button>
+  </div>
 <hr>

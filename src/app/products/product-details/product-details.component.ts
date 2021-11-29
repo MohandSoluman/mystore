@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Iproduct } from '../iproduct';
+import { IProduct } from '../iProduct';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -12,10 +12,9 @@ import { ProductService } from '../product.service';
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy {
   private _unSubscribeAll = new Subject();
-  imageWidth=300;
   pageTitle: string = 'Product Details';
-  selectedProduct: Iproduct | any;
-  products: Iproduct[] = [];
+  selectedProduct: IProduct | any;
+  products: IProduct[] = [];
   errorMessage: string = '';
   constructor(
     private route: ActivatedRoute,
@@ -26,7 +25,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.pageTitle = this.pageTitle + `:${id}`;
+    this.pageTitle = this.pageTitle ;
     this.productService
       .getProducts()
       .pipe(takeUntil(this._unSubscribeAll))

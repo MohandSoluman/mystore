@@ -45,6 +45,11 @@
                         <app-star [rating]='product.starRating' (notify)=" onNotify($event) ">
                         </app-star>
                     </td>
+                    <td>
+                      <button type="button"  class="btn btn-outline-info"[routerLink]="['/products',product.productId,'edit']">
+                        Edit
+                      </button>
+                    </td>
                 </tr>
             </tbody>
         </table>
